@@ -1,10 +1,18 @@
 from os import environ
 
 SESSION_CONFIGS = [
+    dict(
+        name='mpl',
+        display_name="Multiple Price List",
+        app_sequence=['mpl'],
+        num_demo_participants=2,
+    ),
+
     # dict(
-    #     name='public_goods',
-    #     app_sequence=['public_goods'],
-    #     num_demo_participants=3,
+    #     name='eet',
+    #     display_name="Certainty Equivalence Tests",
+    #     app_sequence=['eet'],
+    #     num_demo_participants=2,
     # ),
 ]
 
