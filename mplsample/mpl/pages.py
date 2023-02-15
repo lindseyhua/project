@@ -6,13 +6,13 @@ from .models import Constants
 
 # variables for all templates
 # --------------------------------------------------------------------------------------------------------------------
-def vars_for_all_templates(self):
-    return {
-        'lottery_a_lo': c(Constants.lottery_a_lo),
-        'lottery_a_hi': c(Constants.lottery_a_hi),
-        'lottery_b_lo': c(Constants.lottery_b_lo),
-        'lottery_b_hi': c(Constants.lottery_b_hi)
-    }
+# def vars_for_all_templates(self):
+#     return {
+#         'lottery_a_lo': c(Constants.lottery_a_lo),
+#         'lottery_a_hi': c(Constants.lottery_a_hi),
+#         'lottery_b_lo': c(Constants.lottery_b_lo),
+#         'lottery_b_hi': c(Constants.lottery_b_hi)
+#     }
 
 
 # ******************************************************************************************************************** #
@@ -29,7 +29,11 @@ class Instructions(Page):
     # ----------------------------------------------------------------------------------------------------------------
     def vars_for_template(self):
         return {
-            'num_choices':  len(self.participant.vars['mpl_choices'])
+            'num_choices':  len(self.participant.vars['mpl_choices']),
+            'lottery_a_lo': c(Constants.lottery_a_lo),
+            'lottery_a_hi': c(Constants.lottery_a_hi),
+            'lottery_b_lo': c(Constants.lottery_b_lo),
+            'lottery_b_hi': c(Constants.lottery_b_hi)
         }
 
 
@@ -70,11 +74,19 @@ class Decision(Page):
                 'page':      page,
                 'total':     total,
                 'progress':  progress,
-                'choices':   [self.player.participant.vars['mpl_choices'][page - 1]]
+                'choices':   [self.player.participant.vars['mpl_choices'][page - 1]],
+                'lottery_a_lo': c(Constants.lottery_a_lo),
+                'lottery_a_hi': c(Constants.lottery_a_hi),
+                'lottery_b_lo': c(Constants.lottery_b_lo),
+                'lottery_b_hi': c(Constants.lottery_b_hi)
             }
         else:
             return {
-                'choices':   self.player.participant.vars['mpl_choices']
+                'choices':   self.player.participant.vars['mpl_choices'],
+                'lottery_a_lo': c(Constants.lottery_a_lo),
+                'lottery_a_hi': c(Constants.lottery_a_hi),
+                'lottery_b_lo': c(Constants.lottery_b_lo),
+                'lottery_b_hi': c(Constants.lottery_b_hi)
             }
 
     # set player's payoff
@@ -155,12 +167,20 @@ class Results(Page):
                 'choice_to_pay':  [choice_to_pay],
                 'option_to_pay':  self.player.in_round(round_to_pay).option_to_pay,
                 'payoff':         self.player.in_round(round_to_pay).payoff,
+                'lottery_a_lo': c(Constants.lottery_a_lo),
+                'lottery_a_hi': c(Constants.lottery_a_hi),
+                'lottery_b_lo': c(Constants.lottery_b_lo),
+                'lottery_b_hi': c(Constants.lottery_b_hi)
             }
         else:
             return {
                 'choice_to_pay':  [choice_to_pay],
                 'option_to_pay':  self.player.option_to_pay,
-                'payoff':         self.player.payoff
+                'payoff':         self.player.payoff,
+                'lottery_a_lo': c(Constants.lottery_a_lo),
+                'lottery_a_hi': c(Constants.lottery_a_hi),
+                'lottery_b_lo': c(Constants.lottery_b_lo),
+                'lottery_b_hi': c(Constants.lottery_b_hi)
             }
 
 

@@ -73,15 +73,15 @@
                         {% for i,f,p in choice_to_pay %}
                             <tr>
                                 <td class="center">
-                                    {% with j=i|stringformat:"s" %}
-                                        {% with pies_a="pie_a_"|add:j %}
+                                    {% with j=i %}
+                                        {% with pies_a="pie_a_" %}
                                             <div id="{{ pies_a }}" class="pie-chart"></div>
                                         {% endwith %}
                                     {% endwith %}
                                 </td>
                                 <td class="center">
-                                    {% with j=i|stringformat:"s" %}
-                                        {% with pies_b="pie_b_"|add:j %}
+                                    {% with j=i %}
+                                        {% with pies_b="pie_b_" %}
                                             <div id="{{ pies_b }}" class="pie-chart"></div>
                                         {% endwith %}
                                     {% endwith %}
@@ -145,8 +145,8 @@
                                 <!-- pie charts for A lotteries -->
                                 {% if Constants.small_pies == True %}
                                     <td class="pie-chart">
-                                        {% with j=i|stringformat:"s" %}
-                                            {% with pies_a="pie_a_"|add:j %}
+                                        {% with j=i %}
+                                            {% with pies_a="pie_a_" %}
                                                 <div id="{{ pies_a }}" class="pie-chart"></div>
                                             {% endwith %}
                                         {% endwith %}
@@ -183,8 +183,8 @@
                                 <!-- pie charts for B lotteries -->
                                 {% if Constants.small_pies == True %}
                                     <td class="pie-chart">
-                                        {% with j=i|stringformat:"s" %}
-                                        {% with pies_b="pie_b_"|add:j %}
+                                        {% with j=i %}
+                                        {% with pies_b="pie_b_" %}
                                             <div id="{{ pies_b }}" class="pie-chart"></div>
                                         {% endwith %}
                                         {% endwith %}
